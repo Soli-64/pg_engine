@@ -5,15 +5,13 @@
 """
 
 
-from src.core.game import GameCore
-from src.core.player import DefaultPlayer, CustomPlayer
-from src.core.entity import DefaultEntity, CustomEntity
-from src.core.animation.animation import AnimateSprite  # , AnimateEffectSprite
+from .src.core.game import GameCore
+from .src.core.player import DefaultPlayer, CustomPlayer
+from .src.core.entity import DefaultEntity, CustomEntity
+from .src.core.animation.animation import AnimateSprite  # , AnimateEffectSprite
 
-import src.core.scenes as scenes
-import src.gui.elements as gui
-import src.core.utils.tiled as tiled
-import src.core.utils as pg_funcs
+from .src.core.scenes import *
+from .src.gui.elements import *
 
 __version__ = 0, 1
 __author__ = 'lso'

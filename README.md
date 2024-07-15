@@ -17,9 +17,7 @@
 
 <code style="font-size: 1.2em">
 
-    import pygame
-    import pygame_engine as pge
-    pygame.init()
+    from pg_engine import GameCore, GUIScene, Button
 
     game = GameCore(
         window_name='My Own Game',
