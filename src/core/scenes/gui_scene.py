@@ -1,5 +1,5 @@
 from src.core.scenes.scene import GameScene
-from src.core.utils.pygame.transform_element import transform_element
+from src.core.utils.pg.transform_element import transform_element
 
 
 class GUIScene(GameScene):

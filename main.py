@@ -62,7 +62,10 @@ class MapScene(TiledMapScene):
 
         self.select_map('carte')
 
-    def render(self) -> []:
+    def on_update(self) -> None:
+        pass
+
+    def render(self) -> list:
         return [
             Panel(
                 rect=[(20, 20), (300, (self.game.vh - 40))],
@@ -111,10 +114,10 @@ game.create_scene('map', MapScene())
 
 
 def menu():
-    game.set_current_scene('gui')
+    game.go('gui')
 
 
-def mapper(): game.set_current_scene('map')
+def mapper(): game.go('map')
 
 
 menu()

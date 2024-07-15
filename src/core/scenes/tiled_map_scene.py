@@ -1,4 +1,4 @@
-# import pygame as pg
+# import pg as pg
 from src.core.utils.tiled.map_manager import MapManager
 from src.core.utils.tiled.map import Map
 from src.core.player import DefaultPlayer, CustomPlayer
@@ -109,4 +109,4 @@ class TiledMapScene(GUIScene):
         self.map_manager.update()
         self.map_manager.draw()
 
-        self.update_script()
+        self.on_update()

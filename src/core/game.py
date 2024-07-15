@@ -188,7 +188,7 @@ class GameCore:
         self.current_scene.remove(s)
         self.resize_display_mode(self.vw, self.vh)
 
-    def set_current_scene(self, scene_name: str):
+    def go(self, scene_name: str):
         """
             Set one only scene visible
         :param scene_name:
@@ -265,7 +265,7 @@ class GameCore:
         next_scene = self.current_scene
 
         self.create_scene('present', starting_scene)
-        self.set_current_scene('present')
+        self.go('present')
 
         while self.running:
 

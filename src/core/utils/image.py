@@ -110,7 +110,7 @@ class Image:
         """
         This function is made for extract images from a line of an image. \n
         It extracts 3 images of **size** resolution (default 32x32) \n
-        Returns a list of images ( pygame.Surface )
+        Returns a list of images ( pg.Surface )
         :param image_path:
         :param y:
         :param images_size:

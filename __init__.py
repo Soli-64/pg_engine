@@ -18,5 +18,5 @@ import src.core.utils as pg_funcs
 __version__ = 0, 1
 __author__ = 'lso'
 __author_email__ = "soli64.games@gmail.com"
-__description__ = "Pygame Engine is a module made for create simple 2d games with pygame. It implements scene system," \
+__description__ = "Pygame Engine is a module made for create simple 2d games with pg. It implements scene system," \
                   "simplification of pygame_gui module, dialog, npc system and lot of other features. "

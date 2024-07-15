@@ -76,7 +76,7 @@ class GameScene:
 
     # --- USER USAGE
 
-    def update_script(self):
+    def on_update(self):
         """
         Modify this function for execute your code while running the game
         :return:
