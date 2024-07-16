@@ -14,6 +14,7 @@ class GameCore:
     def __init__(self,
                  window_name: str,
                  window_icon: str = '',
+                 window_size: tuple[int, int] = max(pg.display.get_desktop_sizes()),
                  starting_screen_delay: int = 3000,
                  fullscreen=False,
                  resizable=True,
@@ -31,7 +32,7 @@ class GameCore:
         self.name = window_name
         self.resizable = resizable
 
-        screen_size = max(pg.display.get_desktop_sizes())
+        screen_size = window_size
         w, h = screen_size
         h -= 80
         screen_size = (w, h)
