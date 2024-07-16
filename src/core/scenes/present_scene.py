@@ -1,5 +1,5 @@
 from .gui_scene import GUIScene
-from src.gui.elements import *
+from .. import Panel, Image, Input, Label, Button
 import pygame as pg
 
 

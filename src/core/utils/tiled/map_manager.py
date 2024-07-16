@@ -1,6 +1,6 @@
 import pygame
-from src.core.utils.tiled.map import Map
-from src.core.npc import DialogNPC, MovableNPC
+from .map import Map
+from .. import DialogNPC, MovableNPC
 
 
 class MapManager:

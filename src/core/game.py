@@ -2,7 +2,7 @@ import sys
 import pygame as pg
 import pygame_gui as pgui
 from .scenes import TiledMapScene, PresentScene, GUIScene
-from src.gui.element.dialog_box import DialogBox
+from ..gui.element.dialog_box import DialogBox
 from pygame.locals import *
 
 

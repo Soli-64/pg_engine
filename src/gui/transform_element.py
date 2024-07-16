@@ -1,4 +1,4 @@
-from src.gui.elements import Panel, Input, Label, Button, Image
+from .elements import Panel, Input, Label, Button, Image
 from pygame_gui.elements import UIButton, UIPanel, UILabel, UITextEntryLine, UIImage
 import pygame as pg
 from pygame_gui.core import ObjectID

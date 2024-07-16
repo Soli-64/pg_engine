@@ -1,6 +1,6 @@
 import pygame as pg
 from .utils.image import Image
-from src.core.animation.animation import AnimateSprite
+from .animation.animation import AnimateSprite
 
 
 class DefaultEntity(AnimateSprite):

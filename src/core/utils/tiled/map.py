@@ -1,7 +1,7 @@
 import pygame
 import pyscroll
 import pytmx
-from src.core.utils.tiled.teleporter import Teleporter
+from .teleporter import Teleporter
 
 
 class Map:

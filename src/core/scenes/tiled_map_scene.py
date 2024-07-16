@@ -1,7 +1,7 @@
 # import pg as pg
-from src.core.utils.tiled.map_manager import MapManager
-from src.core.utils.tiled.map import Map
-from src.core.player import DefaultPlayer, CustomPlayer
+from ..utils.tiled.map_manager import MapManager
+from ..utils.tiled.map import Map
+from ..player import DefaultPlayer, CustomPlayer
 from .gui_scene import GUIScene
 
 

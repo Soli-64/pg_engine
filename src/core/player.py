@@ -1,6 +1,6 @@
 import pygame
 import pygame as pg
-from src.core.entity import DefaultEntity
+from .entity import DefaultEntity
 
 
 class DefaultPlayer(DefaultEntity):

@@ -1,5 +1,5 @@
 from .scene import GameScene
-from ..utils.pg.transform_element import transform_element
+from .. import transform_element
 
 
 class GUIScene(GameScene):

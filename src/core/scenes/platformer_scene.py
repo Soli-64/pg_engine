@@ -1,4 +1,4 @@
-from src.core.scenes.scene import GameScene
+from .scene import GameScene
 
 
 class PlatformerScene(GameScene):
