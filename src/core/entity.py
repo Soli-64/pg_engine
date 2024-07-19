@@ -9,28 +9,20 @@ class DefaultEntity(AnimateSprite):
 
     - **Advertisement** All images are extract on 32x32 on a single file, with format file give in documentation.
     For other use you should use a CustomEntity instance
+
+    - Images param dict must contain keys 'up', 'left', 'right', 'down'
+
     """
 
-    def __init__(self, name: str, image_path, x: int, y: int):
+    def __init__(self, name: str, images: dict[''], x: int, y: int):
         super().__init__()
 
-        self.image_path = image_path
-        self.images = {
-            'down': Image.get_onefile_images(self.image_path, 0),
-            'left': Image.get_onefile_images(self.image_path, 32),
-            'right': Image.get_onefile_images(self.image_path, 64),
-            'up': Image.get_onefile_images(self.image_path, 96),
-        }
+        self.images = images
         self.name = name
         self.type = 'entity'
 
         self.direction = 'down'
-
-        self.sprite_sheet = Image.load(self.image_path, (32, 32))
-
         self.animations('down')
-        """self.image = Image.get_image(self.image_path, 0, 0)
-        self.image.set_colorkey(0, 0)"""
 
         self.rect = self.image.get_rect()
         self.feet = pg.Rect(0, 0, self.rect.width * 0.5, 12)
@@ -102,7 +94,7 @@ class CustomEntity(AnimateSprite):
         self.type = 'entity'
 
         self.position = position
-        self.old_position = self.position #.copy()
+        self.old_position = self.position.copy()
         self.x, self.y = self.position
 
         self.name = name

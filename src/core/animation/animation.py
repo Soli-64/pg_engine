@@ -10,13 +10,14 @@ class AnimateSprite(pg.sprite.Sprite):
         self.clock = 0
 
         self.image = None
-        self.images = {}
+        self.images: dict[str, list[pg.Surface]] = {}
 
         self.speed = 3
 
     def animations(self, name):
         self.image = self.images[name][self.animation_index]
-        self.image.set_colorkey(0, 0)
+        #self.image.set_alpha(0)
+        #self.image.convert_alpha()
         self.clock += self.speed * 8
 
         if self.clock >= 170:

@@ -1,3 +1,5 @@
+import pygame
+pygame.init()
 from src.core.game import GameCore
 from src.core.scenes.gui_scene import GUIScene
 from src.core.scenes.tiled_map_scene import TiledMapScene
@@ -5,9 +7,6 @@ from src.gui.elements import *
 from src.core.utils.tiled import *
 from src.core.npc import MovableNPC, DialogNPC
 from src.core.utils.image import Image
-import pygame
-
-pygame.init()
 
 game = GameCore(
     window_name='My Own Game',
@@ -25,7 +24,13 @@ class MapScene(TiledMapScene):
     def __init__(self):
         super().__init__('map', game=game, map_zoom=4)
 
-        self.use_default_player('./assets/images/sprite/default_player.png', (200, 200))
+        player_image_path = './assets/images/sprite/default_player.png'
+        self.use_default_player({
+            'down': Image.get_onefile_images(player_image_path, 0),
+            'left': Image.get_onefile_images(player_image_path, 32),
+            'right': Image.get_onefile_images(player_image_path, 64),
+            'up': Image.get_onefile_images(player_image_path, 96),
+        }, (200, 200))
 
         npc = MovableNPC(
             name='bob',
@@ -113,8 +118,7 @@ game.create_scene('gui', Menu())
 game.create_scene('map', MapScene())
 
 
-def menu():
-    game.go('gui')
+def menu(): game.go('gui')
 
 
 def mapper(): game.go('map')

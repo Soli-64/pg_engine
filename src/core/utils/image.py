@@ -15,6 +15,7 @@ class Image:
         :return:
         """
         image = pg.image.load(path)
+        image = pg.Surface.convert_alpha(image)
         image = pg.transform.scale(image, size)
 
         return image
@@ -68,8 +69,9 @@ class Image:
         :param h:
         :return:
         """
-        image = pg.Surface([32, 32])
-        image.blit(pg.image.load(image_path), (0, 0), (x, y, w, h))
+        image = pg.Surface([32, 32], pg.SRCALPHA)
+        _ = pg.Surface.convert_alpha(pg.image.load(image_path))
+        image.blit(_, (0, 0), (x, y, w, h))
 
         return image
 
@@ -77,7 +79,7 @@ class Image:
     def get_split_images(
             folder_path: str,
             animation_name: str,
-            images_number: int,
+            images_highest_index: int,
             images_resolution=(64, 64)
     ) -> list[pg.Surface]:
         """
@@ -90,13 +92,13 @@ class Image:
 
         :param folder_path:
         :param animation_name:
-        :param images_number:
+        :param images_highest_index:
         :param images_resolution:
         :return:
         """
         images = []
 
-        for i in range(0, images_number):
+        for i in range(0, images_highest_index):
 
             image = Image.load(f'{folder_path}/{animation_name}{i}.png', images_resolution)
             surface = pg.Surface(images_resolution)

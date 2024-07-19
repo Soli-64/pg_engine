@@ -73,14 +73,14 @@ class TiledMapScene(GUIScene):
         self.player.position[1] = point.y
         self.player.save_location()
 
-    def use_default_player(self, image_path: str, position=(100, 100)) -> None:
+    def use_default_player(self, images: dict, position=(100, 100)) -> None:
         """
         Use a simple player with only image for a minimal configuration
-        :param image_path: player image file path
+        :param images: player images
         :param position: tuple position (x, y)
         :return:
         """
-        self.player = DefaultPlayer(image_path, self.game, self.map_manager, position)
+        self.player = DefaultPlayer(images, self.game, self.map_manager, position)
         self.map_manager.set_player(self.player)
 
     def configure_player(self, player: CustomPlayer) -> None:
@@ -98,13 +98,13 @@ class TiledMapScene(GUIScene):
         self.handle_customevents(event)
 
         if self.player is not None:
-            self.player.handle_event(event)
+            self.player.handle_press(event)
 
     def update(self) -> None:
 
         if self.player is not None:
             self.player.save_location()
-            self.player.handle_input()
+            self.player.handle_long_press()
 
         self.map_manager.update()
         self.map_manager.draw()

@@ -10,7 +10,7 @@ from .src.core.player import DefaultPlayer, CustomPlayer
 from .src.core.entity import DefaultEntity, CustomEntity
 from .src.core.animation.animation import AnimateSprite  # , AnimateEffectSprite
 from .src.core.utils.image import Image as ImageManager
-from src.core.utils.crypt import load_json
+from .src.core.utils.crypt import load_json
 
 from .src.core.utils.tiled import Map
 from .src.core.scenes import *
