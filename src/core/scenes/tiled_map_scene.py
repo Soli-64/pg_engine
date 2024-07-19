@@ -1,7 +1,7 @@
 # import pg as pg
 from ..utils.tiled.map_manager import MapManager
 from ..utils.tiled.map import Map
-from ..player import DefaultPlayer, CustomPlayer
+from ..player import Player
 from .gui_scene import GUIScene
 
 
@@ -56,6 +56,7 @@ class TiledMapScene(GUIScene):
         :return:
         """
         self.map_manager.current_map = map_name
+        self.player.add_collide_event(self.map_manager.get_walls(), self.player.move_back)
 
     # --- ENTITIES
 
@@ -80,10 +81,11 @@ class TiledMapScene(GUIScene):
         :param position: tuple position (x, y)
         :return:
         """
-        self.player = DefaultPlayer(images, self.game, self.map_manager, position)
+        self.player = Player(images, self.game, self.map_manager, position)
+        self.player.init_default_config()
         self.map_manager.set_player(self.player)
 
-    def configure_player(self, player: CustomPlayer) -> None:
+    def configure_player(self, player: Player) -> None:
         self.player = player
         self.map_manager.set_player(self.player)
 

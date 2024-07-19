@@ -46,9 +46,9 @@ class MapManager:
                         self.current_map = portal.target_world
                         self.teleport_player(copy_portal.teleport_point)
 
-        for sprite in self.get_group().sprites():
+        """for sprite in self.get_group().sprites():
             if sprite.feet.collidelist(self.get_walls()) > -1:
-                sprite.move_back()
+                sprite.move_back()"""
 
     def get_map(self):
 
@@ -60,7 +60,7 @@ class MapManager:
 
     def get_group(self): return self.get_map().group
 
-    def get_walls(self): return self.get_map().elements['walls']
+    def get_walls(self) -> list[pygame.Rect]: return self.get_map().elements['walls']
 
     def get_object(self, name): return self.get_map().tmx_data.get_object_by_name(name)
 
@@ -73,8 +73,10 @@ class MapManager:
         self.maps[map.name] = map
 
     def update(self):
+
         self.get_group().update()
         self.check_collision()
+        self.player.check_collide()
         for npc in self.get_map().elements['entities']:
             if isinstance(npc, MovableNPC):
                 npc.move()
