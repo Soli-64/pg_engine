@@ -23,7 +23,6 @@ from pg_engine import GameCore, GUIScene, Button
 
 game = GameCore(
     window_name='My Own Game',
-    window_icon='./assets/images/mc2.png',
     resizable=True,
     starting_screen_delay=2000,
     bg_color=(43, 45, 48)

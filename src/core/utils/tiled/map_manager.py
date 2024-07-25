@@ -58,6 +58,16 @@ class MapManager:
         except Exception:
             raise ValueError('You must select a map before set the TiledMapScene visible')
 
+    def get_objects_rects_by_property(self, property):
+
+        rects = []
+
+        for obj in self.get_map().tmx_data.objects:
+            if obj.properties.get(property):
+                rects.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
+
+        return rects
+
     def get_group(self): return self.get_map().group
 
     def get_walls(self) -> list[pygame.Rect]: return self.get_map().elements['walls']
