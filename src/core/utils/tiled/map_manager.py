@@ -86,7 +86,8 @@ class MapManager:
 
         self.get_group().update()
         self.check_collision()
-        self.player.check_collide()
+        if self.player is not None:
+            self.player.check_collide()
         for npc in self.get_map().elements['entities']:
             if isinstance(npc, MovableNPC):
                 npc.move()
