@@ -27,7 +27,7 @@ class GameScene:
     def update(self):
         pass
 
-    def apply_force(self, entities: dict[Any, bool | Callable], direct: str, force_value):
+    def apply_force(self, entities: list[tuple[Any, bool | Callable]], direct: str, force_value):
         """
         entities -> [(entity, condition), (entity, condition)]
         direct - 'N', 'E', 'W', 'S'
