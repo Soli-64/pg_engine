@@ -7,6 +7,8 @@ from src.gui.elements import *
 from src.core.utils.tiled import *
 from src.core.npc import MovableNPC, DialogNPC
 from src.core.utils.image import Image
+from src.core.player import Player
+
 
 game = GameCore(
     window_name='My Own Game',
@@ -25,12 +27,19 @@ class MapScene(TiledMapScene):
         super().__init__('map', game=game, map_zoom=4)
 
         player_image_path = './assets/images/sprite/default_player.png'
-        self.use_default_player({
-            'down': Image.get_onefile_images(player_image_path, 0),
-            'left': Image.get_onefile_images(player_image_path, 32),
-            'right': Image.get_onefile_images(player_image_path, 64),
-            'up': Image.get_onefile_images(player_image_path, 96),
-        }, (200, 200))
+        self.set_player(Player(
+            images={
+                'down': Image.get_onefile_images('./assets/images/sprite/default_player.png', 0),
+                'left': Image.get_onefile_images('./assets/images/sprite/default_player.png', 32),
+                'right': Image.get_onefile_images('./assets/images/sprite/default_player.png', 64),
+                'up': Image.get_onefile_images('./assets/images/sprite/default_player.png', 96),
+            },
+            game=self.game,
+            map_manager=self.map_manager,
+            position=(200, 200)
+        ))
+
+        self.player.init_default_config()
 
         npc = MovableNPC(
             name='bob',
@@ -68,7 +77,7 @@ class MapScene(TiledMapScene):
         self.select_map('carte')
 
     def on_update(self) -> None:
-        pass
+        self.apply_force([self.player], 'N', 3)
 
     def render(self) -> list:
         return [

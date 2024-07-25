@@ -1,4 +1,5 @@
 import pygame as pg
+from typing import Callable, Any
 
 
 class GameScene:
@@ -10,54 +11,6 @@ class GameScene:
     def __init__(self, name: str, game=None) -> None:
         self.name = name
         self.game = game
-        self.musics = []
-        self.pressed_keys = {}
-        self.maintained_keys = {}
-
-    def handle_customevents(self, event):
-
-        maintained = pg.key.get_pressed()
-
-        for key, func in enumerate(self.maintained_keys):
-            if maintained[key]:
-                return func()
-
-        for key, func in enumerate(self.pressed_keys):
-            if event.key == key:
-                return func()
-
-    def add_event(self, key: int, function, maintained=False):
-        """
-        Add an event to this scene \n
-        Set maintained to True for a continue action while the type is down
-        :param key:
-        :param function:
-        :param maintained:
-        :return:
-        """
-        if maintained:
-            self.maintained_keys[key] = function
-        else:
-            self.pressed_keys[key] = function
-
-    def set_musics(self, musics):
-        """
-        **musics**:
-            - **idle**: path of the default scene music
-            - *You can add other keys with this patern*
-                - **music_name**: [file_path, event_start, event_end]
-        :param musics:
-        :return: None
-        """
-        for key, value in enumerate(musics):
-            if key == 'idle':
-                self.add_new_music({
-                    'name': 'idle',
-
-                })
-
-    def add_new_music(self, music):
-        self.musics.append(music)
 
     def setup(self):
         pass
@@ -74,7 +27,35 @@ class GameScene:
     def update(self):
         pass
 
-    # --- USER USAGE
+    def apply_force(self, entities: dict[Any, bool | Callable], direct: str, force_value):
+        """
+        entities -> [(entity, condition), (entity, condition)]
+        direct - 'N', 'E', 'W', 'S'
+        :param entities:
+        :param direct:
+        :param force_value:
+        :return:
+        """
+        for _ in entities:
+            entity = _[0]
+            condition = _[1]
+
+            if isinstance(condition, bool):
+                if not condition:
+                    return
+            else:
+                if not condition():
+                    return
+
+                match direct:
+
+                    case 'N': entity.position[1] -= force_value
+
+                    case 'E': entity.position[0] += force_value
+
+                    case 'W': entity.position[0] -= force_value
+
+                    case 'S': entity.position[1] += force_value
 
     def on_update(self):
         """

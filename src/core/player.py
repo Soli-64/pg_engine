@@ -5,13 +5,15 @@ from .entity import DefaultEntity
 
 class Player(DefaultEntity):
 
-    def __init__(self, images, game, map_manager=None, position=(100, 100)):
+    def __init__(self, images, game, position=(100, 100), map_manager=None):
         self.x, self.y = position
         super().__init__("player", images, self.x, self.y)
 
         # Instances
         self.game = game
-        self.map_manager = map_manager
+        if map_manager is not None:
+            self.map_manager = map_manager
+            self.map_manager.set_player(self)
 
         self.speed = 5
 
@@ -22,8 +24,8 @@ class Player(DefaultEntity):
 
     def init_default_config(self) -> None:
         """
-        Init default player moves
-        :return:
+        Init default player moves with z, q, s, d keys
+         :return:
         """
 
         self.add_on_long_press_event(pygame.K_z, lambda: self.move('up'))
@@ -33,7 +35,7 @@ class Player(DefaultEntity):
 
     def add_on_press_event(self, key, func):
         """
-        Add a instant event
+        Add an instant event
         :param key:
         :param func:
         :return:
@@ -42,7 +44,7 @@ class Player(DefaultEntity):
 
     def add_on_long_press_event(self, key, func):
         """
-        Add a instant event
+        Add an instant event
         :param key:
         :param func:
         :return:

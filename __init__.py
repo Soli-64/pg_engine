@@ -6,9 +6,9 @@
 
 
 from .src.core.game import GameCore
-from .src.core.player import DefaultPlayer, CustomPlayer
+from .src.core.player import Player
 from .src.core.entity import DefaultEntity, CustomEntity
-from .src.core.animation.animation import AnimateSprite  # , AnimateEffectSprite
+from .src.core.animation.animation import AnimateSprite
 from .src.core.utils.image import Image as ImageManager
 from .src.core.utils.crypt import load_json
 
@@ -19,5 +19,5 @@ from .src.gui.elements import *
 __version__ = 0, 1
 __author__ = 'lso'
 __author_email__ = "soli64.games@gmail.com"
-__description__ = "Pygame Engine is a module made for create simple 2d games with pg. It implements scene system," \
+__description__ = "Pygame Engine is a module made to create simple 2d games with pygame. It implements scene system" \
                   "simplification of pygame_gui module, dialog, npc system and lot of other features. "

@@ -63,4 +63,4 @@ class GUIScene(GameScene):
 
     def handle_event(self, event):
 
-        self.handle_customevents(event)
+        pass

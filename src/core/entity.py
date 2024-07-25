@@ -36,6 +36,13 @@ class DefaultEntity(AnimateSprite):
         self.old_position = self.position.copy()
 
     def move(self, direction, speed_boost=1):
+        """
+        move directions: up, left, right, down
+
+        :param direction:
+        :param speed_boost:
+        :return:
+        """
 
         self.animations(direction)
         self.direction = direction

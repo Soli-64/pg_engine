@@ -24,6 +24,10 @@ class TiledMapScene(GUIScene):
         self.map_manager = MapManager(self.game, self.player)
         self.map_zoom = map_zoom
 
+    def set_player(self, player):
+        self.player = player
+        self.player.set_manager(self.map_manager)
+
     # --- MAP
 
     def set_map_zoom(self, zoom: float) -> None:
@@ -74,17 +78,6 @@ class TiledMapScene(GUIScene):
         self.player.position[1] = point.y
         self.player.save_location()
 
-    def use_default_player(self, images: dict, position=(100, 100)) -> None:
-        """
-        Use a simple player with only image for a minimal configuration
-        :param images: player images
-        :param position: tuple position (x, y)
-        :return:
-        """
-        self.player = Player(images, self.game, self.map_manager, position)
-        self.player.init_default_config()
-        self.map_manager.set_player(self.player)
-
     def configure_player(self, player: Player) -> None:
         self.player = player
         self.map_manager.set_player(self.player)
@@ -97,7 +90,6 @@ class TiledMapScene(GUIScene):
         :param event:
         :return:
         """
-        self.handle_customevents(event)
 
         if self.player is not None:
             self.player.handle_press(event)

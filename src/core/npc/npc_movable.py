@@ -80,13 +80,13 @@ class MovableNPC(NPC):
             self.points.append(point)
         self.teleport_spawn()
 
-    def load_points_from_map(self, object_name, index_start, nb_points):
+    def load_points_from_map(self, object_name, index_start, index_end):
         """
         Load your **NPC points** from **the map**: \n
         exemple for points NPC1_0, NPC1_1, NPC1_2, NPC1_3
         :param object_name: the map_object name without index (here NPC1_ )
         :param index_start: the first point index (here 0)
-        :param nb_points: point number
+        :param index_end: last point index
         :return:
         """
 
@@ -95,7 +95,7 @@ class MovableNPC(NPC):
 
         self.object_name = object_name
         self.index_start = index_start
-        self.nb_points = nb_points
+        self.nb_points = index_end
 
     def teleport_spawn(self):
         location = self.points[self.current_point]

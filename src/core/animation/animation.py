@@ -16,8 +16,6 @@ class AnimateSprite(pg.sprite.Sprite):
 
     def animations(self, name):
         self.image = self.images[name][self.animation_index]
-        #self.image.set_alpha(0)
-        #self.image.convert_alpha()
         self.clock += self.speed * 8
 
         if self.clock >= 170:
