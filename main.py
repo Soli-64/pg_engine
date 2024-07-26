@@ -77,7 +77,7 @@ class MapScene(TiledMapScene):
         self.select_map('carte')
 
     def on_update(self) -> None:
-        self.apply_force([self.player], 'N', 3)
+        self.apply_force([(self.player, True)], 'N', 3)
 
     def render(self) -> list:
         return [

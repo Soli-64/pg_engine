@@ -76,7 +76,8 @@ class MapManager:
 
     def draw(self):
         self.get_group().draw(self.screen)
-        self.get_group().center(self.player.rect.center)
+        if self.player is not None:
+            self.get_group().center(self.player.rect.center)
 
     def register_map(self, map: Map):
 

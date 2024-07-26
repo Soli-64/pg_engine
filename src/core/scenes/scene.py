@@ -46,15 +46,15 @@ class GameScene:
                 if not condition():
                     return
 
-                match direct:
+            match direct:
 
-                    case 'N': entity.position[1] -= force_value
+                case 'N': entity.position[1] -= force_value
 
-                    case 'E': entity.position[0] += force_value
+                case 'E': entity.position[0] += force_value
 
-                    case 'W': entity.position[0] -= force_value
+                case 'W': entity.position[0] -= force_value
 
-                    case 'S': entity.position[1] += force_value
+                case 'S': entity.position[1] += force_value
 
     def on_update(self):
         """
