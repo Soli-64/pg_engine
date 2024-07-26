@@ -48,13 +48,13 @@ class GameScene:
 
             match direct:
 
-                case 'N': entity.position[1] -= force_value
+                case 'N': entity.move('up')
 
-                case 'E': entity.position[0] += force_value
+                case 'E': entity.move('right')
 
-                case 'W': entity.position[0] -= force_value
+                case 'W': entity.move('left')
 
-                case 'S': entity.position[1] += force_value
+                case 'S': entity.move('down')
 
     def on_update(self):
         """

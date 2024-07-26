@@ -66,7 +66,10 @@ class Player(DefaultEntity):
             rects, function = _
             for rect in rects:
                 if self.rect.colliderect(rect):
-                    return function()
+                    function()
+                    return True
+                else:
+                    return False
 
     def set_manager(self, map_manager):
         self.map_manager = map_manager
