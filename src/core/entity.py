@@ -35,7 +35,7 @@ class DefaultEntity(AnimateSprite):
     def save_location(self):
         self.old_position = self.position.copy()
 
-    def move(self, direction, speed_boost=1):
+    def move(self, direction, speed_boost: float = 1.0):
         """
         move directions: up, left, right, down
 
