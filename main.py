@@ -35,7 +35,6 @@ class MapScene(TiledMapScene):
                 'up': Image.get_onefile_images('./assets/images/sprite/default_player.png', 96),
             },
             game=self.game,
-            map_manager=self.map_manager,
             position=(200, 200)
         ))
 
@@ -76,9 +75,9 @@ class MapScene(TiledMapScene):
 
         self.select_map('carte')
 
-        self.player.add_collide_event(self.map_manager.get_objects_rects_by_property('collision'), lambda: print('test'))
+        self.player.add_collide_event(self.map_manager.get_objects_rects_by_property('collision'), lambda: self.player.move_back())
 
-    def on_update(self) -> None:
+    def on_update(self):
         self.apply_force([(self.player, lambda: not self.player.check_collide())], 'N', 3)
 
     def render(self) -> list:

@@ -46,10 +46,6 @@ class MapManager:
                         self.current_map = portal.target_world
                         self.teleport_player(copy_portal.teleport_point)
 
-        """for sprite in self.get_group().sprites():
-            if sprite.feet.collidelist(self.get_walls()) > -1:
-                sprite.move_back()"""
-
     def get_map(self):
 
         try:

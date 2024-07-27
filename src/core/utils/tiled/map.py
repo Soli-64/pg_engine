@@ -6,7 +6,7 @@ from .teleporter import Teleporter
 
 class Map:
 
-    def __init__(self, name, file_path, entities_layer, teleporters, entities, collision_property='collision'):
+    def __init__(self, name, file_path, entities_layer, teleporters, entities, collision_property):
         """
         :param name: Map name
         :param file_path: Path to the tmx file

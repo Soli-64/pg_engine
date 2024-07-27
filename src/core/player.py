@@ -5,20 +5,19 @@ from .entity import DefaultEntity
 
 class Player(DefaultEntity):
 
-    def __init__(self, images, game, position=(100, 100), map_manager=None):
+    def __init__(self, images, game, position=(100, 100)):
         self.x, self.y = position
         super().__init__("player", images, self.x, self.y)
 
         # Instances
         self.game = game
-        if map_manager is not None:
-            self.map_manager = map_manager
-            self.map_manager.set_player(self)
 
         self.speed = 5
 
         self.on_long_press = {}
         self.on_press = {}
+
+        self.map_manager = None
 
         self.collide_events = []
 
@@ -68,8 +67,6 @@ class Player(DefaultEntity):
                 if self.rect.colliderect(rect):
                     function()
                     return True
-                else:
-                    return False
 
     def set_manager(self, map_manager):
         self.map_manager = map_manager
