@@ -47,15 +47,14 @@ class DefaultEntity(AnimateSprite):
         self.animations(direction)
         self.direction = direction
 
-        for x in range(speed_boost):
-            if direction == 'up':
-                self.position[1] -= self.speed
-            elif direction == 'left':
-                self.position[0] -= self.speed
-            elif direction == 'right':
-                self.position[0] += self.speed
-            elif direction == 'down':
-                self.position[1] += self.speed
+        if direction == 'up':
+            self.position[1] -= self.speed * speed_boost
+        elif direction == 'left':
+            self.position[0] -= self.speed * speed_boost
+        elif direction == 'right':
+            self.position[0] += self.speed * speed_boost
+        elif direction == 'down':
+            self.position[1] += self.speed * speed_boost
 
     def dash(self):
         self.save_location()
