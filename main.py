@@ -77,9 +77,6 @@ class MapScene(TiledMapScene):
 
         self.player.add_collide_event(self.map_manager.get_objects_rects_by_property('collision'), lambda: self.player.move_back())
 
-    def on_update(self):
-        self.apply_force([(self.player, lambda: not self.player.check_collide())], 'N', 3)
-
     def render(self) -> list:
         return [
             Panel(

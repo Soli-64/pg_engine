@@ -89,3 +89,8 @@ class Map:
 
     def update(self):
         self.register(self.map_layer, self.player)
+
+    def on_update(self):
+        if self.player is not None:
+            self.group.center(self.player.rect.center)
+            self.group.update()

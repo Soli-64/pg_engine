@@ -12,6 +12,10 @@ pip install pygame==2.6.0 pygame-gui==0.6.9 pyscroll==2.31 pytmx==3.32
 ````
 
 ````bash
+git init
+````
+
+````bash
 git submodule add -f https://github.com/Soli-64/pg_engine .\venv\Lib\site-packages\pg_engine\
 ````
 
