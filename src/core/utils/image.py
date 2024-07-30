@@ -44,7 +44,7 @@ class Image:
         :param image2_pos:
         :return:
         """
-        final_image = pg.Surface(size)
+        final_image = pg.Surface(size, pg.SRCALPHA)
 
         final_image.blit(image1, image1_pos)
         final_image.blit(image2, image2_pos)
@@ -100,7 +100,7 @@ class Image:
         for i in range(0, images_highest_index):
 
             image = Image.load(f'{folder_path}/{animation_name}{i}.png', images_resolution)
-            surface = pg.Surface(images_resolution)
+            surface = pg.Surface(images_resolution, pg.SRCALPHA)
             surface.blit(image, (0, 0))
             images.append(surface)
 
