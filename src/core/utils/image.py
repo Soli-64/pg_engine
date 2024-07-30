@@ -97,7 +97,7 @@ class Image:
         """
         images = []
 
-        for i in range(0, images_highest_index):
+        for i in range(0, images_highest_index+1):
 
             image = Image.load(f'{folder_path}/{animation_name}{i}.png', images_resolution)
             surface = pg.Surface(images_resolution, pg.SRCALPHA)
