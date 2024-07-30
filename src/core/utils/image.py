@@ -14,7 +14,7 @@ class Image:
         :param size:
         :return:
         """
-        image = pg.image.load(path).convert_alpha()
+        image = pg.Surface.convert_alpha(pg.image.load(path))
         image = pg.transform.scale(image, size)
 
         return image
