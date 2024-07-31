@@ -21,8 +21,6 @@ git submodule add -f https://github.com/Soli-64/pg_engine .\venv\Lib\site-packag
 
 ````python title="main.py"
 
-import pygame
-pygame.init()
 from pg_engine import GameCore, GUIScene, Button
 
 game = GameCore(

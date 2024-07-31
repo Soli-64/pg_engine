@@ -1,5 +1,3 @@
-import pygame
-pygame.init()
 from src.core.game import GameCore
 from src.core.scenes.gui_scene import GUIScene
 from src.core.scenes.tiled_map_scene import TiledMapScene

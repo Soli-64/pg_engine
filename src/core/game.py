@@ -1,9 +1,13 @@
 import sys
+
+import pygame
 import pygame as pg
 import pygame_gui as pgui
 from .scenes import TiledMapScene, PresentScene, GUIScene
 from ..gui.element.dialog_box import DialogBox
 from pygame.locals import *
+
+pygame.init()
 
 
 class GameCore:
@@ -41,10 +45,7 @@ class GameCore:
 
         pg.display.set_caption(self.name, window_icon)
 
-        if self.resizable:
-            self.screen = pg.display.set_mode(self.dimensions, RESIZABLE)
-        else:
-            self.screen = pg.display.set_mode(self.dimensions)
+        self.screen = pg.display.set_mode(self.dimensions, RESIZABLE if self.resizable else 0)
 
         if fullscreen:
             pg.display.toggle_fullscreen()
@@ -58,7 +59,7 @@ class GameCore:
 
         self.maintained_events = {}
         self.pressed_events = {
-            pg.K_SPACE: lambda:self.stop_dialog()
+            pg.K_SPACE: lambda: self.stop_dialog()
         }
 
         self.ui_manager = pgui.UIManager(self.screen.get_size())
