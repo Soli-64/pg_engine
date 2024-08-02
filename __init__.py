@@ -14,7 +14,7 @@ from .src.core.utils.crypt import load_json
 
 from .src.core.utils.tiled import Map
 from .src.core.scenes import *
-from .src.gui.elements import *
+#from .src.gui.elements import *
 
 __version__ = 0, 1
 __author__ = 'lso'
