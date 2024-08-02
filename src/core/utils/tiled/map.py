@@ -81,7 +81,7 @@ class Map:
 
     def get_group(self): return self.group
 
-    def add_teleporter(self, teleporter):
+    def add_teleporter(self, teleporter: Teleporter):
         if isinstance(teleporter, Teleporter):
             self.elements['teleporters'].append(teleporter)
         else:
