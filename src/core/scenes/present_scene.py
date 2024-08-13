@@ -14,15 +14,15 @@ class PresentScene(GUIScene):
 
                 "#use_strict_present_panel": {
                     "colours": {
-                        "normal_bg": "#000000",
-                        "dark_bg": "#000000"
+                        "normal_bg": "#191919",
+                        "dark_bg": "#191919"
                     }
                 },
 
                 "#use_strict_present_label": {
                     "colours": {
-                        "normal_bg": "#00000000",
-                        "dark_bg": "#00000000"
+                        "normal_bg": "#191919",
+                        "dark_bg": "#191919"
                     },
                     "font": {
                         "size": 45,
