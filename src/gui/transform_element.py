@@ -5,6 +5,7 @@ from pygame_gui.core import ObjectID
 
 
 def transform_element(element, game, container=None):
+
     if isinstance(element, Label):
         return UILabel(
             relative_rect=pg.Rect(element.rect),
@@ -19,26 +20,26 @@ def transform_element(element, game, container=None):
             relative_rect=pg.Rect(element.rect),
             manager=game.ui_manager,
             container=container,
-            object_id=ObjectID(object_id=element.obj_id[0], class_id=element.class_id)
+            object_id=ObjectID(object_id=element.obj_id, class_id=element.class_id)
         ), element.children]
 
     elif isinstance(element, Button):
-        game.events_functions[element.obj_id[0]] = element.func
+        game.events_functions[element.obj_id] = element.func
         return UIButton(
             relative_rect=pg.Rect(element.rect),
             text=element.text,
             manager=game.ui_manager,
             container=container,
-            object_id=ObjectID(class_id=element.class_id, object_id=element.obj_id[0])
+            object_id=ObjectID(class_id=element.class_id, object_id=element.obj_id)
         )
 
     elif isinstance(element, Input):
-        game.events_functions[element.obj_id[0]] = element.submit_func
+        game.events_functions[element.obj_id] = element.submit_func
         return UITextEntryLine(
             relative_rect=pg.Rect(element.rect),
             manager=game.ui_manager,
             container=container,
-            object_id=ObjectID(class_id=element.class_id, object_id=element.obj_id[0])
+            object_id=ObjectID(class_id=element.class_id, object_id=element.obj_id)
         )
 
     elif isinstance(element, Image):
