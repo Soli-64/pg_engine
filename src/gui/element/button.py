@@ -1,9 +1,16 @@
+from typing import Callable
 
 
 class Button:
 
-    def __init__(self, rect, text, obj_id, func):
+    def __init__(self,
+                 rect: list[tuple[int, int], tuple[int, int]],
+                 text: str,
+                 obj_id: str,
+                 class_id: str,
+                 func: Callable):
         self.rect = rect
         self.text = text
-        self.obj_id = obj_id,
+        self.obj_id = obj_id
+        self.class_id = class_id
         self.func = func

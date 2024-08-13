@@ -11,7 +11,7 @@ def transform_element(element, game, container=None):
             text=element.text,
             manager=game.ui_manager,
             container=container,
-            object_id=ObjectID(object_id=element.obj_id, class_id='@e')
+            object_id=ObjectID(object_id=element.obj_id, class_id=element.class_id)
         )
 
     elif isinstance(element, Panel):
@@ -19,7 +19,7 @@ def transform_element(element, game, container=None):
             relative_rect=pg.Rect(element.rect),
             manager=game.ui_manager,
             container=container,
-            object_id=ObjectID(object_id=element.obj_id[0], class_id='@e')
+            object_id=ObjectID(object_id=element.obj_id[0], class_id=element.class_id)
         ), element.children]
 
     elif isinstance(element, Button):
@@ -29,7 +29,7 @@ def transform_element(element, game, container=None):
             text=element.text,
             manager=game.ui_manager,
             container=container,
-            object_id=ObjectID(class_id='@e', object_id=element.obj_id[0])
+            object_id=ObjectID(class_id=element.class_id, object_id=element.obj_id[0])
         )
 
     elif isinstance(element, Input):
@@ -38,7 +38,7 @@ def transform_element(element, game, container=None):
             relative_rect=pg.Rect(element.rect),
             manager=game.ui_manager,
             container=container,
-            object_id=ObjectID(class_id='@e', object_id=element.obj_id[0])
+            object_id=ObjectID(class_id=element.class_id, object_id=element.obj_id[0])
         )
 
     elif isinstance(element, Image):
@@ -46,7 +46,7 @@ def transform_element(element, game, container=None):
             relative_rect=pg.Rect(element.rect),
             manager=game.ui_manager,
             container=container,
-            object_id=ObjectID(class_id='@e', object_id=element.obj_id),
+            object_id=ObjectID(class_id=element.class_id, object_id=element.obj_id),
             image_surface=pg.image.load(element.image_path)
         )
 
