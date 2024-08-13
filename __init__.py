@@ -11,7 +11,7 @@ from .src.core.entity import DefaultEntity, CustomEntity
 from .src.core.animation.animation import AnimateSprite
 from .src.core.utils.image import Image as ImageManager
 from .src.core.utils.crypt import load_json
-from src.core.npc import *
+from .src.core.npc import *
 
 from .src.core.utils.tiled import Map
 from .src.core.scenes import *
