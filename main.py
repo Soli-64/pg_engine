@@ -79,23 +79,27 @@ class MapScene(TiledMapScene):
         return [
             Panel(
                 rect=[(20, 20), (300, (self.game.vh - 40))],
+                class_id='@e',
                 obj_id='#panel',
                 children=[
                     Label(
                         rect=[(10, 20), (260, 40)],
                         text="Player Name",
+                        class_id='@e',
                         obj_id="#"
                     ),
                     Button(
                         rect=[(10, 80), (260, 40)],
                         text="Menu",
                         func=lambda: menu(),
+                        class_id='@e',
                         obj_id='#menu_btn'
                     ),
                     Button(
                         rect=[(10, 140), (260, 40)],
                         text="full_screen",
                         func=lambda: self.game.toggle_fullscreen(),
+                        class_id='@e',
                         obj_id='#fullscreen_btn'
                     )
                 ]
@@ -112,6 +116,7 @@ class Menu(GUIScene):
         return [
             Button(
                 rect=[((self.game.vw-100)/2, (self.game.vh-50)/2), (100, 50)],
+                class_id='@e',
                 obj_id="#btn",
                 text='Play',
                 func=lambda: mapper()
